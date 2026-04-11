@@ -1,30 +1,51 @@
+/*
+ * TCSS 360 - Assignment 1 Minesweeper
+ * Official Solution File
+ * Spring 2026
+ */
+
 package main.java.team.official;
 
 /**
- * Generates the processed Minesweeper output grid.
- * Mines remain '*' and empty cells become '0'–'8' based on adjacent mines.
+ * The HintGenerator class produces the processed Minesweeper output grid.
+ * Mines remain '*' and empty cells are replaced with digits representing the
+ * number of adjacent mines.
  *
- * Author: Anthony Co
+ * @author Anthony Co
+ * @author Ibrahim Mohamud
+ * @author Jackson Steger
+ * @version 4/10/2026
  */
 
 public final class HintGenerator {
 
-    private final Minefield helper = new  Minefield();
+    /** Helper object for mine-checking operations. */
+    private final Minefield myMineChecker = new Minefield();
 
-    public char[][] generateHints(char[][] field) {
-        int rows = field.length;
-        int columns = field[0].length;
+    /**
+     * Generates a processed Minesweeper grid with numeric hints.
+     *
+     * @param theField the original Minesweeper field
+     * @return a new 2D char array containing the processed field
+     */
 
-        char[][] result = new char[rows][columns];
+    public char[][] generateHints(final char[][] theField) {
 
-        for (int r = 0; r < rows; r++) {
-            for (int c = 0; c < columns; c++) {
+        final int rowCount = theField.length;
+        final int columnCount = theField[0].length;
 
-                if (field[r][c] == '*') {   // if a mine, leave it alone
-                    result[r][c] = '*';
+        final char[][] result = new char[rowCount][columnCount];
+
+        for (int row = 0; row < rowCount; row++) {
+            for (int column = 0; column < columnCount; column++) {
+
+                if (theField[row][column] == '*') {
+                    result[row][column] = '*';
                 } else {
-                    int count = helper.countAdjacentMines(field, r, c);   // counts the number of mines around the cell
-                    result[r][c] = (char) ('0' + count);
+                    final int mineCount =
+                            myMineChecker.countAdjacentMines(theField, row, column);
+
+                    result[row][column] = (char) ('0' + mineCount);
                 }
             }
         }
