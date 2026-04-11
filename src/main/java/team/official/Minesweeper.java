@@ -1,7 +1,7 @@
 /*
- * TCSS 360 - Minesweeper Project
+ * TCSS 360 - Assignment 1 Minesweeper
  * Official Solution File
- * Author: Anthony Co, Jackson S., Ibrahim M.
+ * Spring 2026
  */
 
 package main.java.team.official;
@@ -14,7 +14,9 @@ import java.util.Scanner;
  * helper classes and prints the formatted results.
  *
  * @author Anthony Co
- * @version 10 April 2026
+ * @author Ibrahim Mohamud
+ * @author Jackson Steger
+ * @version 4/10/2026
  */
 
 public final class Minesweeper {
