@@ -1,7 +1,7 @@
 /*
  * TCSS 360 - Minesweeper Project
  * Official Solution File
- * Author: Anthony Co
+ * Author: Anthony Co, Jackson S., Ibrahim M.
  */
 
 package main.java.team.official;
