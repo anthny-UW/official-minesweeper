@@ -1,3 +1,9 @@
+/*
+ * TCSS 360 - Assignment 1 Minesweeper
+ * Official Solution File
+ * Spring 2026
+ */
+
 package test.java.team.official;
 
 import main.java.team.official.Minefield;
@@ -5,6 +11,15 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+
+/**
+ * Unit tests for the Minefield class.
+ *
+ * @author Anthony Co
+ * @author Ibrahim Mohamud
+ * @author Jackson Steger
+ * @version 4/10/2026
+ */
 
 public class MinefieldTest {
 
@@ -25,28 +40,28 @@ public class MinefieldTest {
     // isMine()
 
     @Test
-    public void testisMine_TopLeftCorner_ReturnTrue() {
+    public void testIsMine_TopLeftCorner_ReturnTrue() {
         assertTrue(myMineField.isMine(myGivenField,0,0));
     }
 
     @Test
-    public void testisMine_TopRightCorner_ReturnTrue() {
+    public void testIsMine_TopRightCorner_ReturnTrue() {
         assertTrue(myMineField.isMine(myGivenField,0,3));
     }
 
     @Test
-    public void testisMine_BottomLeftCorner_ReturnTrue() {
+    public void testIsMine_BottomLeftCorner_ReturnTrue() {
         assertTrue(myMineField.isMine(myGivenField,3,0));
     }
 
     @Test
-    public void testisMine_BottomRightCorner_ReturnFalse() {
+    public void testIsMine_BottomRightCorner_ReturnFalse() {
         //Should return false, there is no mine at (3, 3)
         assertFalse(myMineField.isMine(myGivenField,3,3));
     }
 
     @Test
-    public void testisMine_OutOfBounds_ReturnFalse() {
+    public void testIsMine_OutOfBounds_ReturnFalse() {
         //Should return false
         assertFalse(myMineField.isMine(myGivenField,-1,0));
     }
@@ -54,25 +69,25 @@ public class MinefieldTest {
     // countAdjacentMines()
 
     @Test
-    public void testcountAdjacentMines_OneMine() {
+    public void testCountAdjacentMines_OneMine() {
         //There should be one mine adjacent to cell (1, 0)
         assertEquals(1, myMineField.countAdjacentMines(myGivenField, 1, 0));
     }
 
     @Test
-    public void testcountAdjacentMines_TwoMines() {
+    public void testCountAdjacentMines_TwoMines() {
         //There should be two mines adjacent to cell (0, 2)
         assertEquals(2, myMineField.countAdjacentMines(myGivenField, 0, 2));
     }
 
     @Test
-    public void testcountAdjacentMines_NoMines() {
+    public void testCountAdjacentMines_NoMines() {
         //There should be no mines adjacent to cell (3, 3)
         assertEquals(0, myMineField.countAdjacentMines(myGivenField, 3, 3));
     }
 
     @Test
-    public void testcountAdjacentMines_CellSurroundedByAllMines() {
+    public void testCountAdjacentMines_CellSurroundedByAllMines() {
         char[][] field = {
                 {'*', '*', '*'},
                 {'*', '.', '*'},
@@ -82,7 +97,7 @@ public class MinefieldTest {
     }
 
     @Test
-    public void testcountAdjacentMines_CenterCellNoAdjacentMines() {
+    public void testCountAdjacentMines_CenterCellNoAdjacentMines() {
         char[][] field = {
                 {'.', '.', '.'},
                 {'.', '.', '.'},
